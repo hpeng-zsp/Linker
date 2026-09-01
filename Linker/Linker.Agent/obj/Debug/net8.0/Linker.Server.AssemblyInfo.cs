@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Linker.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9f6e1b1d1f566b8c2be7b3555aadb153757fc88")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c175f5afb53ae034f4fe50839a1a25724ff9a15b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Linker.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Linker.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
