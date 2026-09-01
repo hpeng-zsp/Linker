@@ -453,9 +453,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\zsp\\web\\Linker\\Linker\\Linker-Dashboard\\LinkerApi.csproj",
-      "projectName": "LinkerApi",
-      "projectPath": "C:\\zsp\\web\\Linker\\Linker\\Linker-Dashboard\\LinkerApi.csproj",
+      "projectUniqueName": "C:\\zsp\\web\\Linker\\Linker\\Linker-Dashboard\\Linker-Dashboard.csproj",
+      "projectName": "Linker-Dashboard",
+      "projectPath": "C:\\zsp\\web\\Linker\\Linker\\Linker-Dashboard\\Linker-Dashboard.csproj",
       "packagesPath": "C:\\NuGetPackages",
       "outputPath": "C:\\zsp\\web\\Linker\\Linker\\Linker-Dashboard\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\web\\Linker\\Linker\\Linker-Dashboard\\Linker-Dashboard.csproj": {}
+    "C:\\zsp\\web\\Linker\\Linker\\Linker-Dashboard\\Linker-Dashboard.csproj": {}
   },
   "projects": {
-    "C:\\web\\Linker\\Linker\\Linker-Dashboard\\Linker-Dashboard.csproj": {
+    "C:\\zsp\\web\\Linker\\Linker\\Linker-Dashboard\\Linker-Dashboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\web\\Linker\\Linker\\Linker-Dashboard\\Linker-Dashboard.csproj",
+        "projectUniqueName": "C:\\zsp\\web\\Linker\\Linker\\Linker-Dashboard\\Linker-Dashboard.csproj",
         "projectName": "Linker-Dashboard",
-        "projectPath": "C:\\web\\Linker\\Linker\\Linker-Dashboard\\Linker-Dashboard.csproj",
-        "packagesPath": "C:\\Users\\kzkq681\\.nuget\\packages\\",
-        "outputPath": "C:\\web\\Linker\\Linker\\Linker-Dashboard\\obj\\",
+        "projectPath": "C:\\zsp\\web\\Linker\\Linker\\Linker-Dashboard\\Linker-Dashboard.csproj",
+        "packagesPath": "C:\\NuGetPackages",
+        "outputPath": "C:\\zsp\\web\\Linker\\Linker\\Linker-Dashboard\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "web", "web", "{8990CB16-CAA5-4CB4-B6CF-254BE58C6A33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkerApi", "Linker-Dashboard\LinkerApi.csproj", "{40101E94-AAD8-4179-BCFC-16D590F57DC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linker-Dashboard", "Linker-Dashboard\Linker-Dashboard.csproj", "{40101E94-AAD8-4179-BCFC-16D590F57DC3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linker.Client", "Linker.Client\Linker.Client.csproj", "{1EBDB0CC-6E48-41EF-B86D-40D36C08E30A}"
 EndProject
