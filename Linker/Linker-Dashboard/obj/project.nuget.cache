@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "HEGfoIt7hpU=",
+  "success": true,
+  "projectFilePath": "C:\\zsp\\web\\Linker\\Linker\\Linker-Dashboard\\LinkerApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\NuGetPackages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\NuGetPackages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
+    "C:\\NuGetPackages\\swashbuckle.aspnetcore\\6.6.2\\swashbuckle.aspnetcore.6.6.2.nupkg.sha512",
+    "C:\\NuGetPackages\\swashbuckle.aspnetcore.swagger\\6.6.2\\swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512",
+    "C:\\NuGetPackages\\swashbuckle.aspnetcore.swaggergen\\6.6.2\\swashbuckle.aspnetcore.swaggergen.6.6.2.nupkg.sha512",
+    "C:\\NuGetPackages\\swashbuckle.aspnetcore.swaggerui\\6.6.2\\swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512"
+  ],
+  "logs": []
+}

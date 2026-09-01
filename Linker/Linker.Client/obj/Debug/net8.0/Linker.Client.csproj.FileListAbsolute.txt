@@ -1,0 +1,12 @@
+C:\web\Linker\Linker\Linker.Client\bin\Debug\net8.0\Linker.Client.deps.json
+C:\web\Linker\Linker\Linker.Client\bin\Debug\net8.0\Linker.Client.dll
+C:\web\Linker\Linker\Linker.Client\bin\Debug\net8.0\Linker.Client.pdb
+C:\web\Linker\Linker\Linker.Client\obj\Debug\net8.0\Linker.Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\web\Linker\Linker\Linker.Client\obj\Debug\net8.0\Linker.Client.AssemblyInfoInputs.cache
+C:\web\Linker\Linker\Linker.Client\obj\Debug\net8.0\Linker.Client.AssemblyInfo.cs
+C:\web\Linker\Linker\Linker.Client\obj\Debug\net8.0\Linker.Client.csproj.CoreCompileInputs.cache
+C:\web\Linker\Linker\Linker.Client\obj\Debug\net8.0\Linker.Client.dll
+C:\web\Linker\Linker\Linker.Client\obj\Debug\net8.0\refint\Linker.Client.dll
+C:\web\Linker\Linker\Linker.Client\obj\Debug\net8.0\Linker.Client.pdb
+C:\web\Linker\Linker\Linker.Client\obj\Debug\net8.0\ref\Linker.Client.dll
+C:\web\Linker\Linker\Linker.Client\obj\Debug\net8.0\Linker.Client.csproj.AssemblyReference.cache
