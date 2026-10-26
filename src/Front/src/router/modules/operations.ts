@@ -33,5 +33,16 @@ export default [
       rank: 10,
       showLink: true
     }
+  },
+  {
+    path: "/raft-cluster",
+    name: "RaftCluster",
+    component: () => import("@/views/cluster/index.vue"),
+    meta: {
+      title: "分布式 Raft 集群",
+      icon: "ep:connection",
+      rank: 11,
+      showLink: true
+    }
   }
 ] satisfies Array<RouteConfigsTable>;

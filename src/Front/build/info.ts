@@ -7,7 +7,7 @@ import boxen, { type Options as BoxenOptions } from "boxen";
 dayjs.extend(duration);
 
 const welcomeMessage = gradient(["cyan", "magenta"]).multiline(
-  `您好! 欢迎使用 Linker\n我们为您精心准备了下面两个贴心的保姆级文档\nhttps://pure-admin.cn\nhttps://pure-admin-utils.netlify.app`
+  `您好! 欢迎使用 Linker\n一站式云原生微服务底座，打通服务发现，配置文件，定时任务与服务通讯`
 );
 
 const boxenOptions: BoxenOptions = {

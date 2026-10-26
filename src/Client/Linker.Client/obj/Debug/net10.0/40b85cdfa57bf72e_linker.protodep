@@ -1,0 +1,2 @@
+obj\Debug\net10.0/Linker.cs \
+obj\Debug\net10.0/LinkerGrpc.cs: ../../Server/Linker.Server/Protos/linker.proto

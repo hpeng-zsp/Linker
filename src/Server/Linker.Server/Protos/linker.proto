@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+option csharp_namespace = "Linker.Server.Protos";
+
+service LinkerCluster {
+  rpc Bootstrap (ClusterBootstrapRequest) returns (ClusterBootstrapResponse);
+  rpc Connect (stream StreamRequest) returns (stream StreamResponse);
+}
+
+message ClusterNode {
+  string id = 1;
+  string address = 2;
+  int32 port = 3;
+  string role = 4;
+  string status = 5;
+}
+
+message ClusterBootstrapRequest {
+  string clientId = 1;
+  string microserviceName = 2;
+  repeated string seedNodes = 3;
+}
+
+message ClusterBootstrapResponse {
+  repeated ClusterNode clusterNodes = 1;
+  ClusterNode defaultNode = 2;
+  ClusterNode leaderNode = 3;
+  int64 clusterVersion = 4;
+}
+
+message StreamRequest {
+  string clientId = 1;
+  string instanceId = 2;
+  string serviceName = 3;
+  string configKey = 4;
+  int64 version = 5;
+  string nodeAddress = 6;
+  int32 port = 7;
+  bool isBootstrap = 8;
+}
+
+message StreamResponse {
+  string instanceId = 1;
+  string serviceName = 2;
+  bool accepted = 3;
+  repeated ClusterNode clusterNodes = 4;
+  ClusterNode defaultNode = 5;
+  string configPayload = 6;
+  int64 configVersion = 7;
+  bool reconnectRequired = 8;
+}

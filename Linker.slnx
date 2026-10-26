@@ -1,8 +1,10 @@
 <Solution>
-  <Folder Name="/Api/">
-    <Project Path="src/Linker.Api/Linker.Api.csproj" />
+  <Folder Name="/Client/">
+    <Project Path="src/Client/Linker.Api/Linker.Api.csproj" />
+    <Project Path="src/Client/Linker.Core/Linker.Core.csproj" />
+    <Project Path="src/Client/Linker.Client/Linker.Client.csproj" />
   </Folder>
-  <Folder Name="/Core/">
-    <Project Path="src/Linker.Core/Linker.Core.csproj" />
+  <Folder Name="/Server/">
+    <Project Path="src/Server/Linker.Server/Linker.Server.csproj" />
   </Folder>
 </Solution>

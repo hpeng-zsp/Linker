@@ -28,6 +28,7 @@ const copy = computed(() => {
       overview: "Overview",
       serviceDiscovery: "Service discovery",
       configCenter: "Config center",
+      raftCluster: "Raft cluster",
       scheduledTasks: "Scheduled tasks",
       operationSummary: "Operational summary",
       recentTasks: "Recent tasks",
@@ -60,6 +61,7 @@ const copy = computed(() => {
     overview: "总览",
     serviceDiscovery: "服务发现",
     configCenter: "配置中心",
+    raftCluster: "Raft 集群",
     scheduledTasks: "定时任务",
     operationSummary: "运维概览",
     recentTasks: "最近任务",
@@ -152,6 +154,16 @@ const moduleCards = computed(() => [
         : "分组化配置管理，支持 JSON 配置编辑。",
     path: "/config-center",
     accent: "purple"
+  },
+  {
+    title: copy.value.raftCluster,
+    tag: "raft",
+    description:
+      locale.value === "en"
+        ? "Leader election, quorum health, and node membership status."
+        : "领导选举、仲裁状态和节点成员关系监控。",
+    path: "/raft-cluster",
+    accent: "green"
   },
   {
     title: copy.value.scheduledTasks,

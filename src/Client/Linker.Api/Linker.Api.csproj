@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Linker.Core\Linker.Core.csproj" />
+    <ProjectReference Include="..\Linker.Client\Linker.Client.csproj" />
   </ItemGroup>
 
 </Project>

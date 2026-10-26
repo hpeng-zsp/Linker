@@ -1,0 +1,16 @@
+C:\dev\Linker\src\Client\Linker.Client\bin\Debug\net10.0\Linker.Client.deps.json
+C:\dev\Linker\src\Client\Linker.Client\bin\Debug\net10.0\Linker.Client.dll
+C:\dev\Linker\src\Client\Linker.Client\bin\Debug\net10.0\Linker.Client.pdb
+C:\dev\Linker\src\Client\Linker.Client\bin\Debug\net10.0\Linker.Core.dll
+C:\dev\Linker\src\Client\Linker.Client\bin\Debug\net10.0\Linker.Core.pdb
+C:\dev\Linker\src\Client\Linker.Client\obj\Debug\net10.0\Linker.Client.csproj.AssemblyReference.cache
+C:\dev\Linker\src\Client\Linker.Client\obj\Debug\net10.0\Linker.Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\Linker\src\Client\Linker.Client\obj\Debug\net10.0\Linker.Client.AssemblyInfoInputs.cache
+C:\dev\Linker\src\Client\Linker.Client\obj\Debug\net10.0\Linker.Client.AssemblyInfo.cs
+C:\dev\Linker\src\Client\Linker.Client\obj\Debug\net10.0\Linker.Client.csproj.CoreCompileInputs.cache
+C:\dev\Linker\src\Client\Linker.Client\obj\Debug\net10.0\Linker.Client.sourcelink.json
+C:\dev\Linker\src\Client\Linker.Client\obj\Debug\net10.0\Linker.C.91A99B20.Up2Date
+C:\dev\Linker\src\Client\Linker.Client\obj\Debug\net10.0\Linker.Client.dll
+C:\dev\Linker\src\Client\Linker.Client\obj\Debug\net10.0\refint\Linker.Client.dll
+C:\dev\Linker\src\Client\Linker.Client\obj\Debug\net10.0\Linker.Client.pdb
+C:\dev\Linker\src\Client\Linker.Client\obj\Debug\net10.0\ref\Linker.Client.dll

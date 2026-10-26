@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\dev\\Linker\\src\\Linker.Core\\Linker.Core.csproj",
+      "projectUniqueName": "C:\\dev\\Linker\\src\\Client\\Linker.Core\\Linker.Core.csproj",
       "projectName": "Linker.Core",
-      "projectPath": "C:\\dev\\Linker\\src\\Linker.Core\\Linker.Core.csproj",
+      "projectPath": "C:\\dev\\Linker\\src\\Client\\Linker.Core\\Linker.Core.csproj",
       "packagesPath": "C:\\Users\\kpgc984\\.nuget\\packages\\",
-      "outputPath": "C:\\dev\\Linker\\src\\Linker.Core\\obj\\",
+      "outputPath": "C:\\dev\\Linker\\src\\Client\\Linker.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kpgc984\\AppData\\Roaming\\NuGet\\NuGet.Config",

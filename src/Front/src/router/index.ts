@@ -30,6 +30,7 @@ import {
   type RouteComponent,
   createRouter
 } from "vue-router";
+import { checkSystemInitStatus } from "@/api/system";
 import {
   type DataInfo,
   userKey,
@@ -116,11 +117,26 @@ export function resetRouter() {
 }
 
 /** 路由白名单 */
-const whiteList = ["/login"];
+const whiteList = ["/login", "/initialize"];
 
 const { VITE_HIDE_HOME } = import.meta.env;
 
-router.beforeEach((to: ToRouteType, _from, next) => {
+router.beforeEach(async (to: ToRouteType, _from, next) => {
+  let initStatus: Awaited<ReturnType<typeof checkSystemInitStatus>> | null = null;
+
+  try {
+    initStatus = await checkSystemInitStatus();
+  } catch {
+    // 若初始化状态接口异常，则保留现有跳转逻辑，不阻止正常访问
+  }
+
+  if (initStatus?.data?.initialized === false) {
+    if (to.path !== "/initialize") {
+      return next({ path: "/initialize" });
+    }
+    return next();
+  }
+
   to.meta.loaded = loadedPaths.has(to.path);
 
   if (!to.meta.loaded) {
@@ -135,6 +151,7 @@ router.beforeEach((to: ToRouteType, _from, next) => {
     }
   }
   const userInfo = storageLocal().getItem<DataInfo<number>>(userKey);
+
   const externalLink = isUrl(to?.name as string);
   if (!externalLink) {
     to.matched.some(item => {

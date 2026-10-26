@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+P0U3F+pEKE=",
+  "dgSpecHash": "pQPwTg+zlh4=",
   "success": true,
-  "projectFilePath": "C:\\dev\\Linker\\src\\Linker.Core\\Linker.Core.csproj",
+  "projectFilePath": "C:\\dev\\Linker\\src\\Client\\Linker.Core\\Linker.Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
