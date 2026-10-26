@@ -29,6 +29,15 @@ export default {
         title: "账户管理",
         showLink: false
       }
+    },
+    {
+      path: "/notifications",
+      name: "Notifications",
+      component: () => import("@/views/notifications/index.vue"),
+      meta: {
+        title: "通知列表",
+        showLink: false
+      }
     }
   ]
 } satisfies RouteConfigsTable;

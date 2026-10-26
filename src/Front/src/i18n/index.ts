@@ -77,7 +77,9 @@ export const messages = {
     noData: "暂无数据",
     executionTime: "执行时间",
     executionLog: "执行日志",
-    result: "结果"
+    result: "结果",
+    delete: "删除",
+    operation: "操作"
   },
   en: {
     appTitle: "Service Governance Center",
@@ -147,7 +149,9 @@ export const messages = {
     noData: "No data",
     executionTime: "Execution time",
     executionLog: "Execution log",
-    result: "Result"
+    result: "Result",
+    delete: "Delete",
+    operation: "Operation"
   }
 } as const;
 

@@ -67,6 +67,7 @@ export type ScheduledTaskLog = {
 export type ScheduledTaskItem = {
   id: string;
   name: string;
+  description: string;
   serviceName: string;
   cron: string;
   status: "open" | "closed";
@@ -263,6 +264,7 @@ const mockScheduledTasks: ScheduledTaskItem[] = [
   {
     id: "job-001",
     name: "sync-user-cache",
+    description: "同步用户缓存，保障登录和权限信息实时一致",
     serviceName: "user-service",
     cron: "0 0/5 * * * ?",
     status: "open",
@@ -278,6 +280,7 @@ const mockScheduledTasks: ScheduledTaskItem[] = [
   {
     id: "job-002",
     name: "sync-order-status",
+    description: "同步订单状态，确保支付和物流节点事件一致",
     serviceName: "order-service",
     cron: "0 0/15 * * * ?",
     status: "open",
@@ -293,6 +296,7 @@ const mockScheduledTasks: ScheduledTaskItem[] = [
   {
     id: "job-003",
     name: "retry-payment-close",
+    description: "重试已关闭但未完成的支付结算任务",
     serviceName: "payment-service",
     cron: "0 0/30 * * * ?",
     status: "closed",

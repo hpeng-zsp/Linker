@@ -1,19 +1,22 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
 import { noticesData } from "./data";
 import NoticeList from "./components/NoticeList.vue";
 import BellIcon from "~icons/ep/bell";
 
+const router = useRouter();
 const noticesNum = ref(0);
 const notices = ref(noticesData);
-const activeKey = ref(noticesData[0]?.key);
 
-notices.value.map(v => (noticesNum.value += v.list.length));
+notices.value.forEach(item => {
+  noticesNum.value += item.list.length;
+});
 
-const getLabel = computed(
-  () => item =>
-    item.name + (item.list.length > 0 ? `(${item.list.length})` : "")
-);
+const noticesList = computed(() => notices.value[0]?.list ?? []);
+const goNotificationList = () => {
+  router.push("/notifications");
+};
 </script>
 
 <template>
@@ -34,29 +37,17 @@ const getLabel = computed(
     </span>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-tabs
-          v-model="activeKey"
-          :stretch="true"
-          class="dropdown-tabs"
-          :style="{ width: notices.length === 0 ? '200px' : '330px' }"
-        >
-          <el-empty
-            v-if="notices.length === 0"
-            description="暂无消息"
-            :image-size="60"
-          />
-          <span v-else>
-            <template v-for="item in notices" :key="item.key">
-              <el-tab-pane :label="getLabel(item)" :name="`${item.key}`">
-                <el-scrollbar max-height="330px">
-                  <div class="noticeList-container">
-                    <NoticeList :list="item.list" :emptyText="item.emptyText" />
-                  </div>
-                </el-scrollbar>
-              </el-tab-pane>
-            </template>
-          </span>
-        </el-tabs>
+        <div class="notice-popover">
+          <div class="notice-popover-header">
+            <span>通知</span>
+            <el-button text size="small" @click="goNotificationList">查看全部</el-button>
+          </div>
+          <el-scrollbar max-height="330px">
+            <div class="noticeList-container">
+              <NoticeList :list="noticesList" :emptyText="notices[0]?.emptyText || '暂无通知'" />
+            </div>
+          </el-scrollbar>
+        </div>
       </el-dropdown-menu>
     </template>
   </el-dropdown>
@@ -76,21 +67,22 @@ const getLabel = computed(
   }
 }
 
-.dropdown-tabs {
+.notice-popover {
+  width: 330px;
+
+  .notice-popover-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #303133;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
   .noticeList-container {
-    padding: 15px 24px 0;
-  }
-
-  :deep(.el-tabs__header) {
-    margin: 0;
-  }
-
-  :deep(.el-tabs__nav-wrap)::after {
-    height: 1px;
-  }
-
-  :deep(.el-tabs__nav-wrap) {
-    padding: 0 36px;
+    padding: 0 16px 12px;
   }
 }
 </style>
