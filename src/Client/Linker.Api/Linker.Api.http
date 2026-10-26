@@ -1,0 +1,6 @@
+@Linker.Api_HostAddress = http://localhost:5266
+
+GET {{Linker.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

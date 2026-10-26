@@ -1,0 +1,12 @@
+C:\dev\Linker\src\Linker.Core\bin\Debug\net10.0\Linker.Core.deps.json
+C:\dev\Linker\src\Linker.Core\bin\Debug\net10.0\Linker.Core.dll
+C:\dev\Linker\src\Linker.Core\bin\Debug\net10.0\Linker.Core.pdb
+C:\dev\Linker\src\Linker.Core\obj\Debug\net10.0\Linker.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\Linker\src\Linker.Core\obj\Debug\net10.0\Linker.Core.AssemblyInfoInputs.cache
+C:\dev\Linker\src\Linker.Core\obj\Debug\net10.0\Linker.Core.AssemblyInfo.cs
+C:\dev\Linker\src\Linker.Core\obj\Debug\net10.0\Linker.Core.csproj.CoreCompileInputs.cache
+C:\dev\Linker\src\Linker.Core\obj\Debug\net10.0\Linker.Core.sourcelink.json
+C:\dev\Linker\src\Linker.Core\obj\Debug\net10.0\Linker.Core.dll
+C:\dev\Linker\src\Linker.Core\obj\Debug\net10.0\refint\Linker.Core.dll
+C:\dev\Linker\src\Linker.Core\obj\Debug\net10.0\Linker.Core.pdb
+C:\dev\Linker\src\Linker.Core\obj\Debug\net10.0\ref\Linker.Core.dll

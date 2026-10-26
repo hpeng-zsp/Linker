@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "GWgvFQappzI=",
+  "success": true,
+  "projectFilePath": "C:\\dev\\Linker\\src\\Linker.Api\\Linker.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kpgc984\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.12\\microsoft.aspnetcore.openapi.10.0.12.nupkg.sha512",
+    "C:\\Users\\kpgc984\\.nuget\\packages\\microsoft.openapi\\2.12.0\\microsoft.openapi.2.12.0.nupkg.sha512",
+    "C:\\Users\\kpgc984\\.nuget\\packages\\scalar.aspnetcore\\2.18.0\\scalar.aspnetcore.2.18.0.nupkg.sha512"
+  ],
+  "logs": []
+}

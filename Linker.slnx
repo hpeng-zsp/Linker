@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Api/">
+    <Project Path="src/Linker.Api/Linker.Api.csproj" />
+  </Folder>
+  <Folder Name="/Core/">
+    <Project Path="src/Linker.Core/Linker.Core.csproj" />
+  </Folder>
+</Solution>
