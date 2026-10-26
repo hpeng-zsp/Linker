@@ -10,6 +10,15 @@ export default [
       showLink: false
     }
   },
+  {
+    path: "/initialize",
+    name: "Initialize",
+    component: () => import("@/views/initialize/index.vue"),
+    meta: {
+      title: "系统初始化",
+      showLink: false
+    }
+  },
   // 全屏403（无权访问）页面
   {
     path: "/access-denied",
