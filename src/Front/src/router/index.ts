@@ -31,7 +31,6 @@ import {
   createRouter
 } from "vue-router";
 import { checkSystemInitStatus } from "@/api/system";
-import { checkSystemInitStatus } from "@/api/system";
 import {
   type DataInfo,
   userKey,
