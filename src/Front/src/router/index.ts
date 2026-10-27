@@ -31,6 +31,7 @@ import {
   createRouter
 } from "vue-router";
 import { checkSystemInitStatus } from "@/api/system";
+import { checkSystemInitStatus } from "@/api/system";
 import {
   type DataInfo,
   userKey,
@@ -122,19 +123,15 @@ const whiteList = ["/login", "/initialize"];
 const { VITE_HIDE_HOME } = import.meta.env;
 
 router.beforeEach(async (to: ToRouteType, _from, next) => {
-  let initStatus: Awaited<ReturnType<typeof checkSystemInitStatus>> | null = null;
-
-  try {
-    initStatus = await checkSystemInitStatus();
-  } catch {
-    // 若初始化状态接口异常，则保留现有跳转逻辑，不阻止正常访问
-  }
-
-  if (initStatus?.data?.initialized === false) {
-    if (to.path !== "/initialize") {
-      return next({ path: "/initialize" });
+  if (to.path === "/login" || to.path === "/initialize") {
+    try {
+      const initStatus = await checkSystemInitStatus();
+      if (to.path === "/login" && initStatus?.data?.initialized === false) {
+        return next({ path: "/initialize" });
+      }
+    } catch {
+      // 若初始化状态接口异常，则允许正常进入登录页
     }
-    return next();
   }
 
   to.meta.loaded = loadedPaths.has(to.path);
@@ -151,6 +148,19 @@ router.beforeEach(async (to: ToRouteType, _from, next) => {
     }
   }
   const userInfo = storageLocal().getItem<DataInfo<number>>(userKey);
+  if (!userInfo && !whiteList.includes(to.path)) {
+    const allowedPaths = ["/access-denied", "/server-error", "/redirect"];
+    if (!allowedPaths.includes(to.path)) {
+      try {
+        const initStatus = await checkSystemInitStatus();
+        if (initStatus?.data?.initialized === false) {
+          return next({ path: "/initialize" });
+        }
+      } catch {
+        // ignore initialization check errors and continue to existing login flow
+      }
+    }
+  }
 
   const externalLink = isUrl(to?.name as string);
   if (!externalLink) {

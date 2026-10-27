@@ -9,7 +9,9 @@ const router = useRouter();
 const mode = ref<"primary" | "secondary" | null>(null);
 const clusterAddress = ref("10.0.0.10");
 const clusterPort = ref(8001);
-const databaseType = ref<"Sqlite" | "MySql" | "PostgreSQL" | "SqlServer">("Sqlite");
+const databaseType = ref<"Sqlite" | "MySql" | "PostgreSQL" | "SqlServer">(
+  "Sqlite"
+);
 const dbHost = ref("127.0.0.1");
 const dbPort = ref(3306);
 const dbName = ref("linker");
@@ -55,7 +57,9 @@ const databaseOptions = [
   { value: "SqlServer", label: "SQL Server" }
 ] as const;
 
-const requiresExternalDb = computed(() => mode.value === "primary" && databaseType.value !== "Sqlite");
+const requiresExternalDb = computed(
+  () => mode.value === "primary" && databaseType.value !== "Sqlite"
+);
 
 const startFollowerRedirect = (target: string) => {
   redirectTarget.value = target;
@@ -89,11 +93,16 @@ const handleExitCluster = async () => {
 
 const handleComplete = async () => {
   if (!mode.value) {
-    ElMessage.warning(t("initModeRequired") || "Please select a node role first");
+    ElMessage.warning(
+      t("initModeRequired") || "Please select a node role first"
+    );
     return;
   }
 
-  if (mode.value === "secondary" && (!clusterAddress.value.trim() || !clusterPort.value)) {
+  if (
+    mode.value === "secondary" &&
+    (!clusterAddress.value.trim() || !clusterPort.value)
+  ) {
     ElMessage.warning(t("initClusterRequired"));
     return;
   }
@@ -104,7 +113,13 @@ const handleComplete = async () => {
       return;
     }
 
-    if (requiresExternalDb.value && (!dbHost.value.trim() || !dbPort.value || !dbUsername.value.trim() || !dbPassword.value.trim())) {
+    if (
+      requiresExternalDb.value &&
+      (!dbHost.value.trim() ||
+        !dbPort.value ||
+        !dbUsername.value.trim() ||
+        !dbPassword.value.trim())
+    ) {
       ElMessage.warning(t("dbRequired"));
       return;
     }
@@ -117,16 +132,21 @@ const handleComplete = async () => {
     const result = await initializeSystem({
       mode: mode.value,
       role: mode.value === "primary" ? "leader" : "follower",
-      clusterAddress: mode.value === "secondary" ? clusterAddress.value.trim() : undefined,
-      clusterPort: mode.value === "secondary" ? Number(clusterPort.value) : undefined,
-      database: mode.value === "primary" ? {
-        type: databaseType.value,
-        host: dbHost.value.trim() || "127.0.0.1",
-        port: Number(dbPort.value || 3306),
-        databaseName: dbName.value.trim() || "linker",
-        username: dbUsername.value.trim() || "root",
-        password: dbPassword.value.trim() || "root"
-      } : undefined
+      clusterAddress:
+        mode.value === "secondary" ? clusterAddress.value.trim() : undefined,
+      clusterPort:
+        mode.value === "secondary" ? Number(clusterPort.value) : undefined,
+      database:
+        mode.value === "primary"
+          ? {
+              type: databaseType.value,
+              host: dbHost.value.trim() || "127.0.0.1",
+              port: Number(dbPort.value || 3306),
+              databaseName: dbName.value.trim() || "linker",
+              username: dbUsername.value.trim() || "root",
+              password: dbPassword.value.trim() || "root"
+            }
+          : undefined
     });
 
     if (result?.success === false) {
@@ -171,7 +191,12 @@ const handleComplete = async () => {
 
         <div class="status-list">
           <div class="status-label">{{ t("initSteps") }}</div>
-          <div v-for="(item, index) in stepList" :key="item.key" class="step-item" :class="{ active: index === stepIndex, done: index < stepIndex }">
+          <div
+            v-for="(item, index) in stepList"
+            :key="item.key"
+            class="step-item"
+            :class="{ active: index === stepIndex, done: index < stepIndex }"
+          >
             <span class="step-dot">{{ index + 1 }}</span>
             <span>{{ item.title }}</span>
           </div>
@@ -186,8 +211,22 @@ const handleComplete = async () => {
       <main class="init-main">
         <div class="topbar-right">
           <div class="language-switch" aria-label="language switch">
-            <button class="lang-btn" :class="{ active: locale === 'zh' }" type="button" @click="setLocale('zh')">中文</button>
-            <button class="lang-btn" :class="{ active: locale === 'en' }" type="button" @click="setLocale('en')">EN</button>
+            <button
+              class="lang-btn"
+              :class="{ active: locale === 'zh' }"
+              type="button"
+              @click="setLocale('zh')"
+            >
+              中文
+            </button>
+            <button
+              class="lang-btn"
+              :class="{ active: locale === 'en' }"
+              type="button"
+              @click="setLocale('en')"
+            >
+              EN
+            </button>
           </div>
         </div>
 
@@ -217,11 +256,19 @@ const handleComplete = async () => {
         <div v-if="mode === 'secondary'" class="cluster-config">
           <div class="config-row">
             <label>{{ t("initClusterAddress") }}</label>
-            <el-input v-model="clusterAddress" :placeholder="t('initClusterAddressPlaceholder')" />
+            <el-input
+              v-model="clusterAddress"
+              :placeholder="t('initClusterAddressPlaceholder')"
+            />
           </div>
           <div class="config-row">
             <label>{{ t("initClusterPort") }}</label>
-            <el-input-number v-model="clusterPort" :min="1" :max="65535" style="width: 100%" />
+            <el-input-number
+              v-model="clusterPort"
+              :min="1"
+              :max="65535"
+              style="width: 100%"
+            />
           </div>
           <p class="db-hint">{{ t("initSecondaryUsesPrimaryDatabase") }}</p>
         </div>
@@ -249,11 +296,21 @@ const handleComplete = async () => {
               </div>
               <div v-if="requiresExternalDb" class="config-row">
                 <label>{{ t("dbPort") }}</label>
-                <el-input-number v-model="dbPort" :min="1" :max="65535" style="width: 100%" />
+                <el-input-number
+                  v-model="dbPort"
+                  :min="1"
+                  :max="65535"
+                  style="width: 100%"
+                />
               </div>
               <div class="config-row">
-                <label>{{ databaseType === 'Sqlite' ? t('dbFileName') : t('dbName') }}</label>
-                <el-input v-model="dbName" :placeholder="databaseType === 'Sqlite' ? 'linker' : 'linker'" />
+                <label>{{
+                  databaseType === "Sqlite" ? t("dbFileName") : t("dbName")
+                }}</label>
+                <el-input
+                  v-model="dbName"
+                  :placeholder="databaseType === 'Sqlite' ? 'linker' : 'linker'"
+                />
               </div>
               <div v-if="requiresExternalDb" class="config-row">
                 <label>{{ t("dbUsername") }}</label>
@@ -261,12 +318,28 @@ const handleComplete = async () => {
               </div>
               <div v-if="requiresExternalDb" class="config-row">
                 <label>{{ t("dbPassword") }}</label>
-                <el-input v-model="dbPassword" type="password" show-password placeholder="root" />
+                <el-input
+                  v-model="dbPassword"
+                  type="password"
+                  show-password
+                  placeholder="root"
+                />
               </div>
             </div>
           </div>
-          <p v-if="databaseType === 'Sqlite' && mode === 'primary'" class="db-hint">{{ t("sqliteHint") }}</p>
-          <p v-if="mode === 'secondary' && databaseType === 'Sqlite'" class="db-hint" style="color: #f56c6c;">{{ t("clusterFollowerSqliteWarning") }}</p>
+          <p
+            v-if="databaseType === 'Sqlite' && mode === 'primary'"
+            class="db-hint"
+          >
+            {{ t("sqliteHint") }}
+          </p>
+          <p
+            v-if="mode === 'secondary' && databaseType === 'Sqlite'"
+            class="db-hint"
+            style="color: #f56c6c"
+          >
+            {{ t("clusterFollowerSqliteWarning") }}
+          </p>
         </div>
 
         <div v-if="loading" class="progress-panel">
@@ -274,19 +347,33 @@ const handleComplete = async () => {
             <span>{{ t("initProgress") }}</span>
             <span>{{ progress }}%</span>
           </div>
-          <el-progress :percentage="progress" :show-text="false" status="success" />
+          <el-progress
+            :percentage="progress"
+            :show-text="false"
+            status="success"
+          />
         </div>
 
-        <div v-if="mode === 'secondary' && redirectCountdown > 0" class="redirect-panel">
+        <div
+          v-if="mode === 'secondary' && redirectCountdown > 0"
+          class="redirect-panel"
+        >
           <div class="redirect-copy">{{ t("initFollowerRedirecting") }}</div>
-          <div class="redirect-meta">{{ redirectTarget }} · {{ redirectCountdown }}s</div>
+          <div class="redirect-meta">
+            {{ redirectTarget }} · {{ redirectCountdown }}s
+          </div>
           <el-button type="warning" plain @click="handleExitCluster">
             {{ t("initExitCluster") }}
           </el-button>
         </div>
 
         <div class="action-row">
-          <el-button size="large" type="primary" :loading="loading" @click="handleComplete">
+          <el-button
+            size="large"
+            type="primary"
+            :loading="loading"
+            @click="handleComplete"
+          >
             {{ t("initComplete") }}
           </el-button>
         </div>
@@ -303,8 +390,16 @@ const handleComplete = async () => {
   justify-content: center;
   padding: 32px;
   background:
-    radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 22%),
-    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.18), transparent 24%),
+    radial-gradient(
+      circle at top left,
+      rgba(56, 189, 248, 0.18),
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(59, 130, 246, 0.18),
+      transparent 24%
+    ),
     linear-gradient(135deg, #f8fbff 0%, #eef2ff 100%);
 }
 
@@ -322,7 +417,11 @@ const handleComplete = async () => {
 
 .init-aside {
   padding: 30px 22px;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.97), rgba(30, 64, 175, 0.9));
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.97),
+    rgba(30, 64, 175, 0.9)
+  );
   color: #fff;
 }
 

@@ -63,22 +63,28 @@ const getMockClusterNodes = (mode: "primary" | "secondary") => {
   };
 
   if (mode === "primary") {
-    return [leader, {
-      id: "node-follower-1",
-      role: "follower" as const,
-      address: "10.0.0.11",
-      port: 8002,
-      status: "healthy" as const
-    }];
+    return [
+      leader,
+      {
+        id: "node-follower-1",
+        role: "follower" as const,
+        address: "10.0.0.11",
+        port: 8002,
+        status: "healthy" as const
+      }
+    ];
   }
 
-  return [leader, {
-    id: "node-follower-local",
-    role: "follower" as const,
-    address: "127.0.0.1",
-    port: 5173,
-    status: "healthy" as const
-  }];
+  return [
+    leader,
+    {
+      id: "node-follower-local",
+      role: "follower" as const,
+      address: "127.0.0.1",
+      port: 5173,
+      status: "healthy" as const
+    }
+  ];
 };
 
 const readSystemInitState = () => {
@@ -98,7 +104,9 @@ const writeSystemInitState = (data: SystemInitStatusResponse["data"]) => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 };
 
-const buildInitResponse = (data: Partial<SystemInitStatusResponse["data"]> = {}) => {
+const buildInitResponse = (
+  data: Partial<SystemInitStatusResponse["data"]> = {}
+) => {
   const normalized = {
     initialized: false,
     mode: "primary",
@@ -134,7 +142,10 @@ export const checkSystemInitStatus = async () => {
       return buildInitResponse(persisted);
     }
 
-    return await http.request<SystemInitStatusResponse>("get", "/system/init-status");
+    return await http.request<SystemInitStatusResponse>(
+      "get",
+      "/system/init-status"
+    );
   } catch {
     return buildInitResponse();
   }
@@ -151,7 +162,8 @@ export const initializeSystem = async (payload: SystemInitializePayload) => {
       password: payload.database?.password || "root"
     };
 
-    const normalizedRole = payload.role || (payload.mode === "secondary" ? "follower" : "leader");
+    const normalizedRole =
+      payload.role || (payload.mode === "secondary" ? "follower" : "leader");
     const shouldPersistDatabase = normalizedRole === "leader";
     const requestBody = {
       mode: payload.mode,
@@ -163,12 +175,22 @@ export const initializeSystem = async (payload: SystemInitializePayload) => {
       databaseType: shouldPersistDatabase ? currentDatabase.type : "Sqlite",
       databaseHost: shouldPersistDatabase ? currentDatabase.host : undefined,
       databasePort: shouldPersistDatabase ? currentDatabase.port : undefined,
-      databaseName: shouldPersistDatabase ? currentDatabase.databaseName : "linker",
-      databaseUsername: shouldPersistDatabase ? currentDatabase.username : undefined,
-      databasePassword: shouldPersistDatabase ? currentDatabase.password : undefined
+      databaseName: shouldPersistDatabase
+        ? currentDatabase.databaseName
+        : "linker",
+      databaseUsername: shouldPersistDatabase
+        ? currentDatabase.username
+        : undefined,
+      databasePassword: shouldPersistDatabase
+        ? currentDatabase.password
+        : undefined
     };
 
-    const result = await http.request<SystemInitStatusResponse>("post", "/system/init", { data: requestBody });
+    const result = await http.request<SystemInitStatusResponse>(
+      "post",
+      "/system/init",
+      { data: requestBody }
+    );
 
     const state = buildInitResponse({
       initialized: true,
